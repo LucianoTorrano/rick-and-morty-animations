@@ -2,7 +2,7 @@ window.addEventListener("load", () => {
   const canvas = document.getElementById("lightningAnimation");
   const ctx = canvas.getContext('2d');
 
-  canvas.height = 300;
+  canvas.height = 400;
   canvas.width = 500;
 
 
@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
     constructor(canvasWidth, canvasHeight){
         this.image = document.getElementById('lightningImg');
         this.spriteWidth = 225;
-        this.spriteHeight= 280;
+        this.spriteHeight= 336;
         this.width = this.spriteWidth;
         this.height = this.spriteHeight;
         this.canvasWidth = canvasWidth;
@@ -19,7 +19,7 @@ window.addEventListener("load", () => {
         this.x= this.canvasWidth/2 - this.width*this.scale/2;
         this.y=0;
         this.minFrame = 0;
-        this.maxFrame = 3;
+        this.maxFrame = 43;
         this.frameX = 0;
         this.frameY = 0;
     }
@@ -28,7 +28,7 @@ window.addEventListener("load", () => {
     }
     update(){
         if(this.frameX < this.maxFrame) this.frameX++;
-        else this.frameX = 0;
+        //else this.frameX = 0;
     }
   }
 
@@ -38,7 +38,7 @@ window.addEventListener("load", () => {
     ctx.clearRect(0,0,canvas.width,canvas.height);
     lightning.draw(ctx);
     lightning.update();
-    //requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
   }
 
   animate();
