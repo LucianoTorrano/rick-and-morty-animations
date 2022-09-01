@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+}
+#meeseeksAnimation,#meeseeksImg{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(1);
+}
+#meeseeksImg{
+    top: 55%;
+    animation: meeseeksMovement 2s linear infinite;
+}
+#meeseeksSprite{
+    display: none;
+}
+
+@keyframes meeseeksMovement{
+    0%{
+        opacity: 0;
+        transform: translate(-50%,-50%) scale(0) rotate(0deg);
+    }
+    25%{
+        opacity: .5;
+        transform: translate(-50%,-50%) rotate(-5deg);
+    }
+    50%{
+        opacity: 1;
+        transform: translate(-50%,-50%) scale(1) rotate(0deg);
+    }
+    75%{
+        transform: translate(-50%,-50%) rotate(5deg);
+    }
+    100%{
+        transform: translate(-50%,-50%) rotate(0deg);
+    }
+}

@@ -1,24 +1,26 @@
 const slimeCanvas = document.getElementById("slimeCanvas");
 const ctx = slimeCanvas.getContext("2d");
 slimeCanvas.height = window.innerHeight;
-slimeCanvas.width = window.innerWidth/4;
-ctx.fillStyle ='#6BDD4B';
+slimeCanvas.width = window.innerWidth;
 
+const colors = ['#6BDD4B', '#B0E343','#36D17D']; //0A8643
 
 class SlimeParticle{
-  constructor(slimeEffect) {
+  constructor(slimeEffect, color) {
     this.effect = slimeEffect;
     this.radius = Math.random() * 60 + 20;
-    this.x = this.radius * 2 + (Math.random() * (this.effect.width - this.radius *4));
+    this.x = this.radius * 2 + (Math.random() * (this.effect.width - this.radius * 4));
     this.y = -4*this.radius;
     this.speedX = (Math.random() - .5) *.1 ;
     this.speedY = Math.random() * 1.5;
     this.gravity = Math.random() * 0.0001;
     this.vy = 0;
+    this.color = color;
   }
   draw(context) {
     context.beginPath();
     context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    context.fillStyle = this.color;
     context.fill();
   }
   update(){
@@ -43,14 +45,16 @@ class SlimeParticle{
 }
 
  class SlimeEffect{
-  constructor(width,height){
+  constructor(width,height,colors){
     this.width = width;
     this.height = height;
     this.slimeArray = [];
+    this.colors = colors;
   }
   init(numberOfSlimes){
     for(let i = 0; i < numberOfSlimes; i++){
-      this.slimeArray.push(new SlimeParticle(this));
+      let colorIndex = Math.floor(Math.random()*3.9);
+      this.slimeArray.push(new SlimeParticle(this, this.colors[colorIndex]));
     }
   }
   update(){
@@ -66,9 +70,8 @@ class SlimeParticle{
   }
 }
 
-const effect = new SlimeEffect(slimeCanvas.width,slimeCanvas.height);
-effect.init(40);
-console.log(effect.slimeArray)
+const effect = new SlimeEffect(slimeCanvas.width,slimeCanvas.height,colors);
+effect.init(120);
 
 function animate(){
   ctx.clearRect(0,0,slimeCanvas.width,slimeCanvas.height);
