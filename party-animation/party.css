@@ -12,7 +12,7 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50% , -50%);
+    transform: translate(-55% , -50%);
     z-index: 2;
     animation: rickMovement 2s linear infinite;
 }
@@ -35,26 +35,26 @@ body{
     width: 45%;
     height: 15rem;
 }
-.circle:nth-child(1){
+.lightOne{
     animation: lightOnOff 5s ease-in-out infinite;
 }
-.circle:nth-child(2){
+.lightTwo{
     animation: lightOnOff 4s 2s ease-in-out infinite;
 }
-.circle:nth-child(3){
+.lightThree{
     animation: lightOnOff 6s 3s ease-in-out infinite;
 }
-.circle:nth-child(4){
+.lightFour{
     animation: lightOnOff 2s 4s ease-in-out infinite;
 }
 .red{
     background-color: red;
 }
 .green{
-    background-color: rgb(0, 255, 0);
+    background-color:#00ff97;
 }
-.yellow{
-    background-color: rgb(255, 255, 0);
+.blue{
+    background-color:#00fcff;
 }
 @keyframes leftLightMovement{
     0%{
@@ -92,21 +92,21 @@ body{
 }
 @keyframes rickMovement{
     0%{
-        opacity: 0;
-        transform: translate(-50%,-50%) scale(0) rotate(0deg);
+        opacity: .8;
+        transform: translate(-55%,-50%) rotate(0deg);
     }
     25%{
-        opacity: .5;
-        transform: translate(-50%,-50%) rotate(-5deg);
+        transform: translate(-55%,-50%) rotate(-5deg);
     }
     50%{
         opacity: 1;
-        transform: translate(-50%,-50%) scale(1) rotate(0deg);
+        transform: translate(-55%,-50%) rotate(0deg);
     }
     75%{
-        transform: translate(-50%,-50%) rotate(5deg);
+        transform: translate(-55%,-50%) rotate(5deg);
     }
     100%{
-        transform: translate(-50%,-50%) rotate(0deg);
+        opacity: .8;
+        transform: translate(-55%,-50%) rotate(0deg);
     }
 }
